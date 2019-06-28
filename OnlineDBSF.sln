@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineDBSF", "OnlineDBSF\OnlineDBSF.csproj", "{854F3DE6-DED4-4EDC-A36A-7D181924CBB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{854F3DE6-DED4-4EDC-A36A-7D181924CBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854F3DE6-DED4-4EDC-A36A-7D181924CBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854F3DE6-DED4-4EDC-A36A-7D181924CBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854F3DE6-DED4-4EDC-A36A-7D181924CBB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DC8F048-BF2E-4921-8383-773ADF18A5C7}
+	EndGlobalSection
+EndGlobal
