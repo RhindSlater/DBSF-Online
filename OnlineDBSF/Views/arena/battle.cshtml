@@ -1,0 +1,129 @@
+﻿@model OnlineDBSF.ViewModels.ArenaViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DBSF</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Arena.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/battlefunctions.js"></script>
+    <script>
+        var Timer = window.setInterval(TimerTick, 100);
+    </script>
+</head>
+<body>
+    <div class="Game-Container">
+        <div class="Game-Header row">
+            <div class="Character-Header col-md-4">
+                <img class="Portrait" src="/img/Portraits/@Model.P1.Name.ToLower()Portrait.png" />
+                <h3 class="Name">@Model.P1.Name</h3>
+
+            </div>
+
+            <div class="Display-Header row col-md-4">
+                <h3 id="Timer" class="Timer col-md-6">14.99</h3>
+                <h3 id="Round" class="Round col-md-6">Round 1</h3>
+
+                <div class="RoundCount-Left col-md-3">
+                    <div class="Checkbox-Left">
+                        <input disabled id="p1checkbox1" name="p1checkbox1" type="checkbox" />
+                        <input disabled id="p1checkbox2" name="p1checkbox2" type="checkbox" />
+                        <input disabled id="p1checkbox3" name="p1checkbox3" type="checkbox" />
+                    </div>
+                </div>
+                <h3 id="Turn" class="Turn col-md-6">P2's Turn</h3>
+                <div class="RoundCount col-md-3">
+                    <input disabled id="p2checkbox3" name="p2checkbox1" type="checkbox" />
+                    <input disabled id="p2checkbox3" name="p2checkbox2" type="checkbox" />
+                    <input disabled id="p2checkbox3" name="p2checkbox3" type="checkbox" />
+                </div>
+            </div>
+
+            <div class="Character-Header col-md-4">
+
+                <h3 class="Name">@Model.P2.Name</h3>
+                <img class="Portrait" src="/img/Portraits/@Model.P2.Name.ToLower()Portrait.png" />
+            </div>
+        </div>
+
+
+            <div class="row Center-Div">
+                <div class="col-md-5 Center-Body">
+                    <img class="CharacterImageLeft" src="@Model.P1.PortraitLeft" />
+                </div>
+
+                <div class="col-md-2 Center-Body2">
+                    <div class="row">
+                        <a class="btn btn-default Attack-button col-md-12">Attack</a>
+                        <a class="btn btn-default Block-button col-md-12">Block</a>
+                        <a class="btn btn-default Powerup-button col-md-12">Power Up</a>
+                        <a class="btn btn-default Transform-button col-md-12">Transform</a>
+                        <a class="btn btn-default Ultimate-button col-md-12">Ultimate</a>
+                        <a class="btn btn-default Lockin-button col-md-12">Lock in</a>
+                    </div>
+                </div>
+
+                <div class="col-md-5 Center-Body">
+                    <img class="CharacterImageRight" src="@Model.P2.PortraitRight" />
+                </div>
+            </div>
+
+
+        @*Stats*@
+        <div class="Game-Footer row">
+            @*P1 Panel*@
+            <div class="Character-Footer row col-md-5">
+                <div class="row P1-Progress col-md-7">
+                    <h3 class="col-md-12 HealthPower">Health: 100</h3>
+                    <progress value="100" max="100"></progress>
+                    <h3 class="col-md-12 HealthPower">Power: 70</h3>
+                    <progress value="70" max="100"></progress>
+                </div>
+                <div class="P1-Stats col-md-5">
+                    <h5>Name: @Model.P1.Name</h5>
+                    <h5>Damage: @Model.P1.AttackDamage</h5>
+                    <h5>Attack Cost: @Model.P1.PowerCost</h5>
+                    <h5>Passive Chance: @Model.P1.PassiveChance</h5>
+                    <h5>Upgrade Cost: @Model.P1.UpgradeCost</h5>
+                    <h5>Ult Damage: @Model.P1.UltDamage</h5>
+                    <h5>Ult Cost: @Model.P1.UltCost</h5>
+                </div>
+            </div>
+
+            @*battle log*@
+            <div class="Display-Footer col-md-2">
+                <div id="BattleLog" class="Battle-Log">
+                    <p class="battledata">Round 1</p>
+                </div>
+            </div>
+
+            @*P2 Panel*@
+            <div class="Character-Footer row col-md-5">
+                <div class="P2-Stats col-md-5">
+                    <h5>Name: @Model.P2.Name</h5>
+                    <h5>Damage: @Model.P2.AttackDamage</h5>
+                    <h5>Attack Cost: @Model.P2.PowerCost</h5>
+                    <h5>Passive Chance: @Model.P2.PassiveChance</h5>
+                    <h5>Upgrade Cost: @Model.P2.UpgradeCost</h5>
+                    <h5>Ult Damage: @Model.P2.UltDamage</h5>
+                    <h5>Ult Cost: @Model.P2.UltCost</h5>
+                </div>
+                <div class="row P2-Progress col-md-7">
+                    <h3 class="col-md-12 HealthPower HP-Right">Health: 100</h3>
+                    <progress class="ProgressRight" id="P2-Health" value="100" max="100"></progress>
+                    <h3 class="col-md-12 HealthPower HP-Right">Power: 70</h3>
+                    <progress class="ProgressRight" id="P2-Power" value="70" max="100"></progress>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

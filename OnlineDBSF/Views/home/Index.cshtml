@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DBSF - Home</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Home.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/home.js"></script>
+</head>
+<body>
+    <div class="Home">
+        <div>
+            @if (Session["UserID"] == null)
+            {
+                <a data-toggle="modal" data-target="#registerModal" class="btn RegisterButton btn-default">Register</a>
+                <div id="registerModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Register</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/u/register">
+                                    <input class="username-field" type="text" id="username" name="Username" placeholder="Username" />
+                                    <input type="submit" value="login" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="button-div">
+            <a href="" class="btn btn-default HomeButton">Campaign</a>
+        </div>
+        <div class="button-div">
+            @if (Session["UserID"] == null)
+            {
+                <a data-toggle="modal" data-target="#loginModal" class="btn btn-default HomeButton">Online</a>
+                <div id="loginModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Login</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/u/login">
+                                    <input class="username-field" type="text" id="username" name="Username" placeholder="Username" />
+                                    <input type="submit" value="login" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <a data-toggle="modal" data-target="#OnlineModal" class="btn btn-default HomeButton">Online</a>
+                <div id="OnlineModal" class="modal fade" role="dialog">
+                    <div class="Online-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Online</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <a href="/lobby/host">Host Session</a>
+                                <a href="/lobby/search">Join Session</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="button-div">
+
+        </div>
+        <div class="button-div">
+            <a href="settings/" class="btn btn-default HomeButton">Settings</a>
+        </div>
+    </div>
+</body>
+</html>

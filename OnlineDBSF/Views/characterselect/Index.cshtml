@@ -1,0 +1,45 @@
+﻿@model OnlineDBSF.ViewModels.CharacterSelectViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DBSF - Character Select</title>
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/CharacterSelect.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/characterselect.js"></script>
+</head>
+<body class="characterselect">
+    <div class="container">
+        <img class="characterselect-big-left" src="" />
+        <img class="characterselect-big-right" src="" />
+        <h2 class="character-title">Select your fighter</h2>
+        <div class="row characters">
+            @foreach (var i in Model.Characters)
+            {
+                <div class="portrait-div col-md-2">
+                    <img class="portrait" src="/img/Portraits/@i.Name.ToLower()Portrait.png" />
+                    @if (i.Name != "Zeno")
+                    {
+                        <img id="overlay_@i.Name" onclick="LockIn('@i.ID','@Model.MySession.ID','@Session["UserID"]'), displaycharacter('@Model.MySession.ID') " onmouseout="Unhover('@i.Name')" onmouseover="Hover('@i.Name')" class="portrait-overlay" src="/img/Portraits/border.png" />
+                    }
+                    else
+                    {
+                        <img id="overlay_@i" class="portrait-overlay" src="/img/Portraits/border.png" />
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <script>
+        var check = setInterval(opponentcheck('@Model.MySession.ID'), 1500);
+        var checkPicture = setInterval(displaycharacter('@Model.MySession.ID'), 1500);
+    </script>
+</body>
+</html>

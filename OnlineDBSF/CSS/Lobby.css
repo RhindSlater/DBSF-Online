@@ -1,0 +1,18 @@
+body{
+    background-image: url(../img/Backgrounds/bg3.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.All-Sessions{
+    margin: 200px 100px;
+    background-color: #2b2b33bd;
+}
+td,th{
+    color: white;
+}
+tr:hover{
+    background-color: #2b2b33bd !important;
+}
+.Waiting-title{
+    text-align: center;
+}

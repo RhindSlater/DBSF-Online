@@ -1,0 +1,46 @@
+.portrait{
+    height: 95px;
+    width: 95px;
+}
+.portrait-overlay{
+    position: absolute;
+    top: 0px;
+    left: 48px;
+    width: 95px;
+    height: 95px;
+    margin: auto;
+}
+.portrait-div{
+    position: relative;
+    text-align: center;
+    color: black;
+    width: 95px;
+    height: 95px;
+    margin: 8px auto;
+}
+.characterselect{
+    background-image: url(../img/Backgrounds/bg.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.characters{
+    margin-top:280px; 
+}
+.character-title{
+    margin: 50px auto 50px;
+    width: 325px;
+}
+.characterselect-big-left{
+    position: absolute;
+    top: 0;
+    left: -50px;
+
+}
+.characterselect-big-right{
+    position: absolute;
+    top: 0;
+    right: -50px;
+}
+.container{
+    position: relative;
+}

@@ -1,0 +1,27 @@
+﻿@model List<OnlineDBSF.Models.GameSession>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DBSF - Searching</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS/Lobby.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/lobby.js"></script>
+    <script>
+        var interval = window.setInterval(SearchingOpponent('@Session["UserID"]'), 500);
+    </script>
+</head>
+<body>
+    <div class="Waiting">
+        <h4 class="Waiting-title">Waiting For Opponent....</h4>
+    </div>
+</body>
+</html>

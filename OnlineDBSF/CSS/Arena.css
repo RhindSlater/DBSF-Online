@@ -1,0 +1,151 @@
+.Game-Header{
+    background-color: #b1b1b1e3;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    min-width: 1280px;
+}
+.Character-Header{
+    display: flex;
+}
+.Portrait{
+    margin: 5px 0;
+    height: 75px;
+    width: 75px;
+}
+.Name{
+    padding: 20px 0;
+    margin: 0 auto;
+}
+.Game-Container{
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 0 auto;
+    background-image: url(../img/Backgrounds/arena.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: relative;
+    z-index: -5;
+}
+.Timer{
+    text-align: right;
+}
+.Checkbox-Left{
+    position: absolute;
+    right: 1px;
+}
+.RoundCount-Left{
+    position: relative;
+}
+.Turn{
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+.CharacterImageLeft, .CharacterImageRight{
+    width:710px;
+    z-index: 3;
+    margin-bottom: 5%;
+}
+.btn{
+    width: 100%;
+    padding: 25px;
+    margin: 18px auto;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.btn:hover{
+    background-color: rgba(148, 148, 148, 0.89);
+}
+.Lockin-button{
+    padding: 40px;
+}
+
+.Game-Footer{
+    background-color: #b1b1b1e3;
+    position: absolute;
+    bottom: 55px;
+    left: auto;
+    right: auto;
+    max-width: 1920px;
+    margin: 0;
+    z-index: 1;
+}
+.Display-Footer{
+    text-align: center;
+    background-color: #f0f0f0;
+}
+.Game-Header{
+    margin: 10px;
+}
+.HealthPower{
+    font-size: 1.8rem;
+    margin: 4px;
+    height: 35px;
+}
+progress{
+    width: 400px;
+}
+.P1-Stats,.P2-Stats{
+    text-align: center;
+}
+h5{
+    font-size: 0.9rem;
+    margin: 0 auto 3px;
+}
+.HP-Right{
+    text-align: right;
+}
+.Center-Body{
+    margin-top: 95px;
+}
+.Center-Body2{
+    margin-top: 95px;
+    max-height: 711px;
+}
+.Center-Div{
+    min-height: 880px;
+    min-width: 1300px;
+}
+.row{
+    margin: 0;
+}
+body{
+    z-index: -6;
+    position: relative;
+}
+.ProgressRight{
+    display: block;
+    transform: rotate(180deg);
+}
+.P1-Stats, .P1-Progress, .P2-Stats, .P2Progress{
+    margin: 15px auto;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.Battle-Log{
+    overflow-y: auto;
+    height: 167px;
+}
+.Display-Footer{
+    z-index: 3;
+    padding: 0;
+}
+.battledata{
+    margin-bottom: 3px;
+}
