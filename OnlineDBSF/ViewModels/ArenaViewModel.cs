@@ -10,7 +10,7 @@ namespace OnlineDBSF.ViewModels
     {
         public Character P1 { get; set; }
         public Character P2 { get; set; }
-        public User User1 { get; set; }
-        public User User2 { get; set; }
+        public User MyUser { get; set; }
+        public GameSession MySession { get; set; }
     }
 }

@@ -35,6 +35,7 @@ namespace OnlineDBSF.Controllers
         [HttpPost]
         public ActionResult LockIn(int characterid, int sessionid, string id)
         {
+            int userid = 0;
             GameSession session = db.GameSessions.Include("P1").Include("P2").Include("user1").Include("user2").Where(x => x.ID == sessionid).FirstOrDefault();
             Character character = db.Characters.Where(x => x.ID == characterid).FirstOrDefault();
             if (session.user1.Username == id)
@@ -42,6 +43,7 @@ namespace OnlineDBSF.Controllers
                 if (session.P1 == null)
                 {
                     session.P1 = character;
+                    userid = session.user1.ID;
                 }
             }
             if (session.user2.Username == id)
@@ -49,23 +51,25 @@ namespace OnlineDBSF.Controllers
                 if (session.P2 == null)
                 {
                     session.P2 = character;
+                    userid = session.user2.ID;
                 }
             }
             db.SaveChanges();
             if (session.P1 != null & session.P2 != null)
             {
-                return Json(Url.Action("battle", "arena", new { id = session.ID }));
+                return Json(Url.Action("battle", "arena", new { id = session.ID, userID = userid}));
             }
             return Json(null);
         }
 
         [HttpPost]
-        public ActionResult CheckOp(int id)
+        public ActionResult CheckOp(int id, int userID)
         {
+            User user = db.Users.Find(userID);
             GameSession session = db.GameSessions.Include("P1").Include("P2").Include("user1").Include("user2").Where(x => x.ID == id).FirstOrDefault();
             if (session.P1 != null & session.P2 != null)
             {
-                return Json(Url.Action("battle", "arena", new { id = session.ID }));
+                return Json(Url.Action("battle", "arena", new { id = session.ID, userID = userID }));
             }
             else
             {

@@ -92,6 +92,5 @@ namespace OnlineDBSF.Controllers
             Character character = db.Characters.Where(x => x.ID == id).FirstOrDefault();
             return Json(character.Name,JsonRequestBehavior.AllowGet);
         }
-
     }
 }

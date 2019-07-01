@@ -11,6 +11,7 @@
 }
 .button-div{
     width: 100%;
+    cursor: pointer;
 }
 body{
     background-image: url("https://www.gamersrd.com/wp-content/uploads/2018/06/Dragon-Ball-SUPER-GAMERSRD.jpg");
@@ -22,6 +23,19 @@ body{
 .modal-dialog{
     margin: 400px auto;
     width: 400px;
+}
+.modal-body{
+    min-height: 150px;
+}
+.game-sessions{
+    margin: 15px auto;
+    height: 20px;
+    width: 17%;
+}
+.game-sessions > a{
+    margin: 0 auto;
+    text-align: center;
+    width: 0;
 }
 .username-field{
     width: 310px;
