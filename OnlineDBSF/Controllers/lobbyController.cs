@@ -17,7 +17,6 @@ namespace OnlineDBSF.Controllers
             return View();
         }
 
-        //[HttpPost]
         public ActionResult host()
         {
             if (Session["UserID"] == null)
@@ -82,7 +81,7 @@ namespace OnlineDBSF.Controllers
 
             if (session != null)
             {
-                return Json(Url.Action("index", "characterselect", new { id = session.ID } ), JsonRequestBehavior.AllowGet);
+                return Json(Url.Action("index", "characterselect", new { id = session.ID, userID = session.user1.ID } ), JsonRequestBehavior.AllowGet);
             }
             return Json(null, JsonRequestBehavior.AllowGet);
         }

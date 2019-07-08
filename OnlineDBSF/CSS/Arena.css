@@ -97,6 +97,9 @@ h5{
 .HP-Right{
     text-align: right;
 }
+.Power-Right{
+    text-align: right;
+}
 .Center-Body{
     margin-top: 95px;
 }
@@ -148,4 +151,7 @@ body{
 }
 .battledata{
     margin-bottom: 3px;
+}
+.Battle-Log p{
+    margin: 0;
 }

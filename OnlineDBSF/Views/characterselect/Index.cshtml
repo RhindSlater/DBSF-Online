@@ -10,9 +10,12 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>DBSF - Character Select</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link href="~/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/CSS/CharacterSelect.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        var userObj = @Html.Raw(Json.Encode(Model));
+    </script>
     <script src="~/Scripts/characterselect.js"></script>
 </head>
 <body class="characterselect">
@@ -38,8 +41,8 @@
         </div>
     </div>
     <script>
-        var check = setInterval(opponentcheck('@Model.MySession.ID'), 1500);
-        var checkPicture = setInterval(displaycharacter('@Model.MySession.ID'), 1500);
+        var check = setInterval(opponentcheck(@Model.MySession.ID), 1500);
+        var checkPicture = setInterval(displaycharacter(@Model.MySession.ID), 1500);
     </script>
 </body>
 </html>

@@ -14,6 +14,18 @@ namespace OnlineDBSF
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Lobby",
+                url: "{controller}/{action}/{id}/{userID}",
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "Index",
+                    id = UrlParameter.Optional,
+                    //userID = UrlParameter.Optional,
+                }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new

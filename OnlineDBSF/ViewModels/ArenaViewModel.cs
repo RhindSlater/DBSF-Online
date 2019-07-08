@@ -8,9 +8,9 @@ namespace OnlineDBSF.ViewModels
 {
     public class ArenaViewModel
     {
-        public Character P1 { get; set; }
-        public Character P2 { get; set; }
-        public User MyUser { get; set; }
+        public List<Character> P1 { get; set; }
+        public List<Character> P2 { get; set; }
+        public string MyUser { get; set; }
         public GameSession MySession { get; set; }
     }
 }

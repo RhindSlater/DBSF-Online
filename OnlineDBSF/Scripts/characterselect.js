@@ -23,9 +23,10 @@ function LockIn(character, session, ID ){
 }
 
 function opponentcheck(id){
+    console.log('checking for opponent character');
     $.ajax({
         url: '/characterselect/CheckOp',
-        data: {id: id},
+        data: {id: id, userID: userObj.MySession.user1.ID },
         type: 'POST',
         success: function(data){
             if(data != null){
@@ -40,10 +41,10 @@ function opponentcheck(id){
 
 var intervalID = window.setInterval(displaycharacter(), 500);
 
-function displaycharacter(session){
+function displaycharacter(){
+    console.log('checking for opponent character image selected');
     $.ajax({
-        url: '/characterselect/displaycharacterLeft',
-        data: { id: session},
+        url: '/characterselect/displaycharacterLeft/' + userObj.MySession.ID,
         success: function(data){
             console.log(data);
             if(data != null){
@@ -51,9 +52,9 @@ function displaycharacter(session){
             }
         },
     });
+
     $.ajax({
-        url: '/characterselect/displaycharacterRight',
-        data: { id: session},
+        url: '/characterselect/displaycharacterRight/' + userObj.MySession.ID,
         success: function(data){
             console.log(data);
             if(data != null){

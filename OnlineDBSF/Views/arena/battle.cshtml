@@ -15,17 +15,19 @@
     <link href="~/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/CSS/Arena.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/battlefunctions.js"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="~/script.js"></script>
     <script>
-        var Timer = window.setInterval(TimerTick, 100);
+        var userObj = @Html.Raw(Json.Encode(Model));
     </script>
 </head>
-<body>
-    <input type="text" value="@Model.MyUser" id="sessionid" style="display:none;" />
+<body> 
+    <input type="text" value="@Model.MyUser" id="sessionid" style="display:none;"/> 
     <div class="Game-Container">
         <div class="Game-Header row">
             <div class="Character-Header col-md-4">
-                <img class="Portrait" src="/img/Portraits/@Model.P1.Name.ToLower()Portrait.png" />
-                <h3 class="Name">@Model.P1.Name</h3>
+                <img class="Portrait" src="/img/Portraits/@Model.P1[0].Name.ToLower()Portrait.png" />
+                <h3 class="Name">@Model.P1[0].Name</h3>
 
             </div>
 
@@ -42,23 +44,23 @@
                 </div>
                 <h3 id="Turn" class="Turn col-md-6">P1's Turn</h3>
                 <div class="RoundCount col-md-3">
-                    <input disabled id="p2checkbox3" name="p2checkbox1" type="checkbox" />
-                    <input disabled id="p2checkbox3" name="p2checkbox2" type="checkbox" />
                     <input disabled id="p2checkbox3" name="p2checkbox3" type="checkbox" />
+                    <input disabled id="p2checkbox2" name="p2checkbox2" type="checkbox" />
+                    <input disabled id="p2checkbox1" name="p2checkbox1" type="checkbox" />
                 </div>
             </div>
 
             <div class="Character-Header col-md-4">
 
-                <h3 class="Name">@Model.P2.Name</h3>
-                <img class="Portrait" src="/img/Portraits/@Model.P2.Name.ToLower()Portrait.png" />
+                <h3 class="Name">@Model.P2[0].Name</h3>
+                <img class="Portrait" src="/img/Portraits/@Model.P2[0].Name.ToLower()Portrait.png" />
             </div>
         </div>
 
 
             <div class="row Center-Div">
                 <div class="col-md-5 Center-Body">
-                    <img class="CharacterImageLeft" src="@Model.P1.PortraitLeft" />
+                    <img class="CharacterImageLeft" src="@Model.P1[0].PortraitLeft" />
                 </div>
 
                 <div class="col-md-2 Center-Body2">
@@ -73,7 +75,7 @@
                 </div>
 
                 <div class="col-md-5 Center-Body">
-                    <img class="CharacterImageRight" src="@Model.P2.PortraitRight" />
+                    <img class="CharacterImageRight" src="@Model.P2[0].PortraitRight" />
                 </div>
             </div>
 
@@ -83,19 +85,19 @@
             @*P1 Panel*@
             <div class="Character-Footer row col-md-5">
                 <div class="row P1-Progress col-md-7">
-                    <h3 class="col-md-12 HealthPower">Health: 100</h3>
-                    <progress value="100" max="100"></progress>
-                    <h3 class="col-md-12 HealthPower">Power: 70</h3>
-                    <progress value="70" max="100"></progress>
+                    <h3 class="col-md-12 HealthPower HP-Left">Health: 100</h3>
+                    <progress value="100" max="100" id="P1-Health"></progress>
+                    <h3 class="col-md-12 HealthPower Power-Left">Power: 70</h3>
+                    <progress value="70" max="100" id="P1-Power"></progress>
                 </div>
                 <div class="P1-Stats col-md-5">
-                    <h5>Name: @Model.P1.Name</h5>
-                    <h5>Damage: @Model.P1.AttackDamage</h5>
-                    <h5>Attack Cost: @Model.P1.PowerCost</h5>
-                    <h5>Passive Chance: @Model.P1.PassiveChance</h5>
-                    <h5>Upgrade Cost: @Model.P1.UpgradeCost</h5>
-                    <h5>Ult Damage: @Model.P1.UltDamage</h5>
-                    <h5>Ult Cost: @Model.P1.UltCost</h5>
+                    <h5>Name: @Model.P1[0].Name</h5>
+                    <h5>Damage: @Model.P1[0].AttackDamage</h5>
+                    <h5>Attack Cost: @Model.P1[0].PowerCost</h5>
+                    <h5>Passive Chance: @Model.P1[0].PassiveChance</h5>
+                    <h5>Upgrade Cost: @Model.P1[0].UpgradeCost</h5>
+                    <h5>Ult Damage: @Model.P1[0].UltDamage</h5>
+                    <h5>Ult Cost: @Model.P1[0].UltCost</h5>
                 </div>
             </div>
 
@@ -109,18 +111,18 @@
             @*P2 Panel*@
             <div class="Character-Footer row col-md-5">
                 <div class="P2-Stats col-md-5">
-                    <h5>Name: @Model.P2.Name</h5>
-                    <h5>Damage: @Model.P2.AttackDamage</h5>
-                    <h5>Attack Cost: @Model.P2.PowerCost</h5>
-                    <h5>Passive Chance: @Model.P2.PassiveChance</h5>
-                    <h5>Upgrade Cost: @Model.P2.UpgradeCost</h5>
-                    <h5>Ult Damage: @Model.P2.UltDamage</h5>
-                    <h5>Ult Cost: @Model.P2.UltCost</h5>
+                    <h5>Name: @Model.P2[0].Name</h5>
+                    <h5>Damage: @Model.P2[0].AttackDamage</h5>
+                    <h5>Attack Cost: @Model.P2[0].PowerCost</h5>
+                    <h5>Passive Chance: @Model.P2[0].PassiveChance</h5>
+                    <h5>Upgrade Cost: @Model.P2[0].UpgradeCost</h5>
+                    <h5>Ult Damage: @Model.P2[0].UltDamage</h5>
+                    <h5>Ult Cost: @Model.P2[0].UltCost</h5>
                 </div>
                 <div class="row P2-Progress col-md-7">
                     <h3 class="col-md-12 HealthPower HP-Right">Health: 100</h3>
                     <progress class="ProgressRight" id="P2-Health" value="100" max="100"></progress>
-                    <h3 class="col-md-12 HealthPower HP-Right">Power: 70</h3>
+                    <h3 class="col-md-12 HealthPower Power-Right">Power: 70</h3>
                     <progress class="ProgressRight" id="P2-Power" value="70" max="100"></progress>
                 </div>
             </div>

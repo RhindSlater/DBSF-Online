@@ -12,5 +12,6 @@ namespace OnlineDBSF.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Win> Wins { get; set; }
         public DbSet<GameSession> GameSessions { get; set; }
+        public DbSet<Passive> Passives { get; set; }
     }
 }

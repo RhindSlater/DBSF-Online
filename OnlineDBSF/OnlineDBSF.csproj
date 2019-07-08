@@ -127,10 +127,19 @@
     <Compile Include="Migrations\201906222256263_characterpassives.Designer.cs">
       <DependentUpon>201906222256263_characterpassives.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907062153433_passives.cs" />
+    <Compile Include="Migrations\201907062153433_passives.Designer.cs">
+      <DependentUpon>201907062153433_passives.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907062242028_power.cs" />
+    <Compile Include="Migrations\201907062242028_power.Designer.cs">
+      <DependentUpon>201907062242028_power.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\GameSession.cs" />
+    <Compile Include="Models\Passive.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Win.cs" />
@@ -172,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906222256263_characterpassives.resx">
       <DependentUpon>201906222256263_characterpassives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907062153433_passives.resx">
+      <DependentUpon>201907062153433_passives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907062242028_power.resx">
+      <DependentUpon>201907062242028_power.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -235,3 +235,5 @@ G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.csproj.CoreCompileInputs.cache
 G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.csproj.CopyComplete
 G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.dll
 G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.pdb
+G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.Migrations.passives.resources
+G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.Migrations.power.resources

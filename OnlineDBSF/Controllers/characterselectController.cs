@@ -40,6 +40,7 @@ namespace OnlineDBSF.Controllers
             Character character = db.Characters.Where(x => x.ID == characterid).FirstOrDefault();
             if (session.user1.Username == id)
             {
+                userid = session.user1.ID;
                 if (session.P1 == null)
                 {
                     session.P1 = character;
@@ -48,6 +49,7 @@ namespace OnlineDBSF.Controllers
             }
             if (session.user2.Username == id)
             {
+                userid = session.user2.ID;
                 if (session.P2 == null)
                 {
                     session.P2 = character;
