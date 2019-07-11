@@ -237,3 +237,4 @@ G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.dll
 G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.pdb
 G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.Migrations.passives.resources
 G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.Migrations.power.resources
+G:\DBSF-Online\OnlineDBSF\obj\Debug\OnlineDBSF.Migrations.winner.resources

@@ -22,11 +22,11 @@ function LockIn(character, session, ID ){
     });
 }
 
-function opponentcheck(id){
+function opponentcheck(){
     console.log('checking for opponent character');
     $.ajax({
         url: '/characterselect/CheckOp',
-        data: {id: id, userID: userObj.MySession.user1.ID },
+        data: {id: userObj.MySession.ID , userID: userObj.MySession.user1.ID },
         type: 'POST',
         success: function(data){
             if(data != null){
@@ -39,7 +39,8 @@ function opponentcheck(id){
     })
 }
 
-var intervalID = window.setInterval(displaycharacter(), 500);
+var check = setInterval(opponentcheck, 1500);
+var intervalID = setInterval(displaycharacter, 500);
 
 function displaycharacter(){
     console.log('checking for opponent character image selected');

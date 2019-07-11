@@ -1,4 +1,5 @@
 const io = require('socket.io')(3000);
+var sql = require('mssql');
 var P1Status = 'block';
 var P2Status = 'block';
 var Time = 15000;
@@ -53,9 +54,11 @@ function GameOver(){
         clearInterval(interval);
     } else if(P2.Health <= 0 & P1Wins == 2){
         io.emit('gameover','Player 1 wins');
+        io.emit('Winner', P1);
         clearInterval(interval);
     } else if(P1.Health <= 0 & P2Wins == 2){
         io.emit('gameover','Player 2 wins');
+        io.emit('Winner', P2);
         clearInterval(interval);
     }
     if(P1.Health <= 0 | P2.Health <= 0){
@@ -80,6 +83,9 @@ function GameOver(){
         P2 = Object.assign({},P2BackUp);
     }
 }
+
+// sql.connect('mssql://rhind slater:wweecwraw@localDB/OnlineDBSF.Models.Context');
+// const result = sql.query`select * from GameSession where id = 21`
 
 
 io.on('connection', function(socket){

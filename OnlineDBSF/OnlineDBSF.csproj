@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201907062242028_power.Designer.cs">
       <DependentUpon>201907062242028_power.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907080250065_winner.cs" />
+    <Compile Include="Migrations\201907080250065_winner.Designer.cs">
+      <DependentUpon>201907080250065_winner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Context.cs" />
@@ -187,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907062242028_power.resx">
       <DependentUpon>201907062242028_power.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907080250065_winner.resx">
+      <DependentUpon>201907080250065_winner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

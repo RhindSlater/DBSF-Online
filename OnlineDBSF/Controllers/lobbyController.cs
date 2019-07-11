@@ -38,7 +38,7 @@ namespace OnlineDBSF.Controllers
                     db.SaveChanges();
                 }
             }
-            return View(db.GameSessions.Include("user1").Where(x => x.user2 == null).ToList());
+            return View(db.GameSessions.Include("user1").Where(x => x.user1.ID == user.ID & x.user2 == null).FirstOrDefault());
         }
 
         public ActionResult search()
@@ -71,17 +71,17 @@ namespace OnlineDBSF.Controllers
             }
         }
 
-        public ActionResult checkopponent(string username)
+        public ActionResult checkopponent(int? id)
         {
-            if(username == null)
+            if(id == null)
             {
                 return Json(null, JsonRequestBehavior.AllowGet);
             }
-            GameSession session = db.GameSessions.Include("user1").Include("user2").Where(x => x.user1.Username == username & x.user2 != null).FirstOrDefault();
+            GameSession session = db.GameSessions.Include("user1").Include("user2").Where(x => x.user1.ID == id & x.user2 != null).FirstOrDefault();
 
             if (session != null)
             {
-                return Json(Url.Action("index", "characterselect", new { id = session.ID, userID = session.user1.ID } ), JsonRequestBehavior.AllowGet);
+                return Json(Url.Action("index", "characterselect", new { id = session.ID } ), JsonRequestBehavior.AllowGet);
             }
             return Json(null, JsonRequestBehavior.AllowGet);
         }

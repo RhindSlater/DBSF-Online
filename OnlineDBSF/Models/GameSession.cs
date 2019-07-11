@@ -12,5 +12,6 @@ namespace OnlineDBSF.Models
         public User user2 { get; set; }
         public Character P1 { get; set; }
         public Character P2 { get; set; }
+        public User Winner { get; set; }
     }
 }

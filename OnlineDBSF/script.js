@@ -13,6 +13,10 @@ socket.on('gameover',function(data){
     alert(data);
 })
 
+socket.on('Winner',function(data){
+    data
+})
+
 socket.on('P1Wins',function(data){
   if(data == 1){
     $('#p1checkbox3').prop('checked', true);
